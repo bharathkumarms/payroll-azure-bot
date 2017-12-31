@@ -1,0 +1,79 @@
+.adp-answer {
+    background-color: #bbb;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+input {
+    height: 23px;
+}
+
+.adp-error {
+    background-color: #d14019;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.user-question {
+    background-color: #f5f5f5;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding: 5px;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.bot-container {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.bot-container .bot-question {
+    flex: 1;
+}
+
+.bot-container .bot-command {
+    flex: 0;
+    margin: 0 0 0 1rem;
+}
+
+.bot-command-btn {
+    height: 36px;
+}
+
+.bot-container div input {
+    padding: 5px;
+    width: 100%;
+}
+
+.bot-container div button {
+    padding: 5px;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 400px) {
+    .bot-container {
+        display: block;
+    }
+
+    .bot-command button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .bot-question input {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .bot-container .bot-command {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}

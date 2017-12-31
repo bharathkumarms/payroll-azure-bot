@@ -1,3 +1,17 @@
-<h1>
-  {{title}}
+<h1>ADP Payroll Bot
+  <span style="font-size:11px" ng-show="counterValue>0">{{counterValue}}</span>
 </h1>
+<br />
+
+<div class="bot-container">
+  <div class="bot-question">
+    <input type="text" ng-disabled="disableQuestion" autofocus="autofocus" name="payrollBot" placeholder="{{placeholder == true && 'Type Hi & Press Enter' || 'Type your question'}}"
+      ng-model="question" autocomplete="off" />
+  </div>
+  <div class="bot-command">
+    <button class="bot-command-btn" type="submit" (click)="answer()" ng-disabled="isQuestion">
+      Ask Payroll Bot
+    </button>
+  </div>
+</div>
+<div class="answers"></div>
