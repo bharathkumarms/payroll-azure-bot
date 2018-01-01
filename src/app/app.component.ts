@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Http, Headers, Response, URLSearchParams } from '@angular/http';
-import { Observable,Subscription  } from "rxjs";
-import {TimerObservable} from "rxjs/observable/TimerObservable";
+import { Observable, Subscription } from "rxjs";
+import { TimerObservable } from "rxjs/observable/TimerObservable";
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -17,15 +17,15 @@ export class AppComponent {
   qa: Array<string> = [];
   question: string;
   timer: any;
-  
+
   private tick: number;
   private subscription: Subscription;
 
 
   constructor(private http: Http) {
     this.placeholder = true;
-this.errorDisplay = false;
-    this.timer = TimerObservable.create(2000, 1000);
+    this.errorDisplay = false;
+    this.timer = TimerObservable.create(0, 1000);
   }
 
   answer() {
@@ -41,16 +41,17 @@ this.errorDisplay = false;
       .subscribe(
       value => (console.log(value),
         this.loading = false,
-        this.qa.unshift('<div class="adp-answer"><b>Bot:</b> ' + value.answers[0].answer + '</div>')),
+        this.qa.unshift('<div class="adp-answer"><b>Bot:</b> ' + value.answers[0].answer + '</div>'),
+        this.question = ""),
       error => (console.log(error),
         this.qa.unshift('<div class="adp-error"><b>Bot:</b> ' + 'Please try next question in 30-60 sec. Too many request or check your network.' + '</div>'),
         this.errorDisplay = true,
         this.subscription = this.timer.subscribe(t => {
           this.tick = t;
-          if(t==5){
+          if (t == 60) {
             this.errorDisplay = false,
-            this.loading = false,
-            this.subscription.unsubscribe();
+              this.loading = false,
+              this.subscription.unsubscribe();
           }
         })
 
