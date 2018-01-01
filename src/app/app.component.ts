@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,AfterViewChecked,ViewChildren } from '@angular/core';
 import { Http, Headers, Response, URLSearchParams } from '@angular/http';
 import { Observable, Subscription } from "rxjs";
 import { TimerObservable } from "rxjs/observable/TimerObservable";
@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent {
+export class AppComponent implements AfterViewChecked {
   loading: boolean;
   errorDisplay: boolean;
   placeholder: boolean;
@@ -20,13 +20,19 @@ export class AppComponent {
 
   private tick: number;
   private subscription: Subscription;
-
+  @ViewChildren('input') vc;
 
   constructor(private http: Http) {
     this.placeholder = true;
     this.errorDisplay = false;
     this.timer = TimerObservable.create(0, 1000);
   }
+
+  ngAfterViewChecked() {    
+    console.log("lllllllllllllllllllll");
+    console.log(this.vc);       
+    this.vc.first.nativeElement.focus();
+}
 
   answer() {
     this.qa.unshift('<div class="user-question"><b>Me:</b> ' + this.question + '</div>');

@@ -8,7 +8,7 @@
 <form (ngSubmit)="answer()">
   <div class="bot-container">
     <div class="bot-question">
-      <input type="text" [disabled]="loading" autofocus="autofocus" name="payrollBot" [placeholder]="placeholder == true?'Type Hi & Press Enter' : 'Type your question'"
+      <input #input class="question-class" type="text" [disabled]="loading" autofocus="autofocus" name="payrollBot" [placeholder]="placeholder == true?'Type Hi & Press Enter' : 'Type your question'"
         [(ngModel)]="question" autocomplete="off" />
     </div>
     <div class="bot-command">
