@@ -18,8 +18,8 @@ export class AppComponent implements AfterViewChecked {
   question: string;
   timer: any;
 
-  private tick: number;
-  private subscription: Subscription;
+  public tick: number;
+  public subscription: Subscription;
   @ViewChildren('input') vc;
 
   constructor(private http: Http) {
