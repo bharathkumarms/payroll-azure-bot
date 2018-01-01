@@ -12,7 +12,7 @@
         [(ngModel)]="question" autocomplete="off" />
     </div>
     <div class="bot-command">
-      <button class="bot-command-btn" type="submit" (click)="answer()" [disabled]="loading">
+      <button class="bot-command-btn" type="submit" (click)="answer()" [disabled]="question.length<2">
         Ask Payroll Bot
       </button>
     </div>
