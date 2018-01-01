@@ -2,8 +2,8 @@
   <span style="font-size:13px" [hidden]="!errorDisplay">{{tick}}</span>
 </h1>
 <br />
-<div [hidden]="!loading">
-  Loading...
+<div style="height:20px">
+  <span [hidden]="!loading">Loading...</span>
 </div>
 <form (ngSubmit)="answer()">
   <div class="bot-container">
